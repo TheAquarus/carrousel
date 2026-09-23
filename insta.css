@@ -1,0 +1,116 @@
+.insta-slider{
+  position:relative;
+  width:535px;
+  max-width:100%;
+  overflow:hidden;
+  background:#000;
+}
+
+.insta-slider input{
+  display:none;
+}
+
+.insta-images{
+  width:100%;
+  overflow:hidden;
+}
+
+.insta-track{
+  display:flex;
+  width:400%;
+  transition:transform .45s ease;
+}
+
+.insta-track img{
+  width:25%;
+  flex-shrink:0;
+  aspect-ratio:1/1;
+  object-fit:cover;
+}
+
+/* déplacement */
+
+#slide1:checked ~ .insta-images .insta-track{
+  transform:translateX(0);
+}
+
+#slide2:checked ~ .insta-images .insta-track{
+  transform:translateX(-25%);
+}
+
+#slide3:checked ~ .insta-images .insta-track{
+  transform:translateX(-50%);
+}
+
+#slide4:checked ~ .insta-images .insta-track{
+  transform:translateX(-75%);
+}
+
+/* barre du bas */
+
+.insta-bottom{
+  height:35px;
+  background:#0c0f12;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.insta-dots{
+  display:flex;
+  gap:5px;
+}
+
+.insta-dots label{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#777;
+  cursor:pointer;
+}
+
+/* point actif */
+
+#slide1:checked ~ .insta-bottom .insta-dots label:nth-child(1),
+#slide2:checked ~ .insta-bottom .insta-dots label:nth-child(2),
+#slide3:checked ~ .insta-bottom .insta-dots label:nth-child(3),
+#slide4:checked ~ .insta-bottom .insta-dots label:nth-child(4){
+  background:#536dfe;
+}
+
+/* flèches */
+
+.insta-arrows label{
+  display:none;
+  position:absolute;
+  top:calc(50% - 17px);
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:rgba(255,255,255,.8);
+  color:#555;
+  font-size:26px;
+  line-height:27px;
+  text-align:center;
+  cursor:pointer;
+  z-index:10;
+}
+
+.insta-arrows .prev{
+  left:10px;
+}
+
+.insta-arrows .next{
+  right:10px;
+}
+
+#slide1:checked ~ .insta-arrows .p1,
+#slide1:checked ~ .insta-arrows .n1,
+#slide2:checked ~ .insta-arrows .p2,
+#slide2:checked ~ .insta-arrows .n2,
+#slide3:checked ~ .insta-arrows .p3,
+#slide3:checked ~ .insta-arrows .n3,
+#slide4:checked ~ .insta-arrows .p4,
+#slide4:checked ~ .insta-arrows .n4{
+  display:block;
+}
